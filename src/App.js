@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react';
-import './App.css';
 import { useDispatch } from 'react-redux'
 import authService from './appWrite/auth';
 import { login, logout } from './store/authSlice';
 import Header from './Components/Header/Header';
 import Footer from './Components/Footer/Footer';
-import { Outlet } from 'react-router-dom';
+import Container from './Components/Container/Container';
+// import './index.css'
+//import { Outlet } from 'react-router-dom';
 
 
 function App() {
@@ -28,11 +29,11 @@ function App() {
       .catch((error) => {
         console.log(error.message)
       })
-  }, [])
+  }, [dispatch])
 
 
   return !loading ? (
-    <div className='min-h-screen flex flex-wrap content-between bg-gray 400'>
+    <div className='min-h-screen flex flex-wrap content-between bg-gray-400'>
       <div className='w-full block'>
         <Header />
         <main>
@@ -41,6 +42,8 @@ function App() {
         <Footer />
 
       </div>
+      <Container children='hello container' />
+      
     </div>
   )
 
